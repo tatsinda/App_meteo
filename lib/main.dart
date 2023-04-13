@@ -1,3 +1,7 @@
+import 'package:first_app_bdcc/gallery-page.dart';
+import 'package:first_app_bdcc/meteo-page.dart';
+
+import './home-page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -36,7 +40,13 @@ class MyApp extends StatelessWidget {
               leading: Icon(Icons.home), //une iconce a gauche
               trailing: Icon(Icons.arrow_right), // une fleche a droite
               //methode executer apres click sur l'element
-              onTap: () {},
+              onTap: () {
+                //navigation vers une autre page
+                Navigator.pop(context); // supprimer la page precedente du stack
+                //navigation vers une autre page
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => new HomePage()));
+              },
             ),
             Divider(color: Colors.deepOrange), //ligne entre les menu
             //element du Drawer
@@ -48,7 +58,14 @@ class MyApp extends StatelessWidget {
               leading: Icon(Icons.map), //une iconce a gauche
               trailing: Icon(Icons.arrow_right), // une fleche a droite
               //methode executer apres click sur l'element
-              onTap: () {},
+              onTap: () {
+                //navigation vers une autre page
+                Navigator.pop(context); // supprimer la page precedente
+                //navigation vers une autre page
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return MeteoPage();
+                }));
+              },
             ),
             Divider(
               color: Colors.deepOrange,
@@ -62,7 +79,14 @@ class MyApp extends StatelessWidget {
               leading: Icon(Icons.image), //une iconce a gauche
               trailing: Icon(Icons.arrow_right), // une fleche a droite
               //methode executer apres click sur l'element
-              onTap: () {},
+              onTap: () {
+                //navigation vers une autre page
+                Navigator.pop(context); // supprimer la page precedente
+                //navigation vers une autre page
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return GalleryPage();
+                }));
+              },
             ),
             Divider(
               color: Colors.deepOrange,
