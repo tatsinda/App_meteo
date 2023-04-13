@@ -20,35 +20,50 @@ class _MeteoPageState extends State<MeteoPage> {
         ),
         body: Column(
           children: <Widget>[
-            Center(
-              child: Text(
-                'Counter Value: ${counter} , Rnd value ${randomValue}',
-                style: TextStyle(fontSize: 22),
+            // envelloper dansun padding
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Center(
+                child: Text(
+                  'Counter Value: ${counter} , Rnd value ${randomValue}',
+                  style: TextStyle(fontSize: 22),
+                ),
               ),
             ),
-            ElevatedButton(
-              child: Text(
-                'Incrementer',
+            //enlopper dans un container pour structurer
+            Container(
+              width: double.infinity,
+              padding: EdgeInsets.all(8), //un padding de 8
+              child: ElevatedButton(
+                child: Text(
+                  'Incrementer',
+                ),
+                //methode executer apres click sur le button
+                onPressed: () {
+                  //changement du state
+                  setState(() {
+                    ++counter;
+                    randomValue = new Random().nextInt(100);
+                  });
+                },
               ),
-              //methode executer apres click sur le button
-              onPressed: () {
-                //changement du state
-                setState(() {
-                  ++counter;
-                  randomValue = new Random().nextInt(100);
-                });
-              },
             ),
-            ElevatedButton(
-              child: Text(
-                'Decrementer',
+            Container(
+              width: double.infinity,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ElevatedButton(
+                  child: Text(
+                    'Decrementer',
+                  ),
+                  onPressed: () {
+                    //changement du state
+                    setState(() {
+                      --counter;
+                    });
+                  },
+                ),
               ),
-              onPressed: () {
-                //changement du state
-                setState(() {
-                  --counter;
-                });
-              },
             )
           ],
         ));
