@@ -12,6 +12,15 @@ class MeteoPage extends StatefulWidget {
 class _MeteoPageState extends State<MeteoPage> {
   int counter = 0;
   int randomValue = 0;
+
+  //executer a chaque fois que le state est instancier
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    print("Initialisation"); //execution
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
