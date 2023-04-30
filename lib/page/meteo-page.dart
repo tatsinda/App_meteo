@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 class MeteoPage extends StatefulWidget {
+  static String city = "";
   MeteoPage() {}
 
   @override
@@ -25,55 +26,37 @@ class _MeteoPageState extends State<MeteoPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Meteo Page'),
+          title: Text('Meteo Page -> ${MeteoPage.city}'),
         ),
         body: Column(
           children: <Widget>[
-            // envelloper dansun padding
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Center(
-                child: Text(
-                  'Counter Value: ${counter} , Rnd value ${randomValue}',
-                  style: TextStyle(fontSize: 22),
-                ),
-              ),
-            ),
-            //enlopper dans un container pour structurer
             Container(
-              width: double.infinity,
-              padding: EdgeInsets.all(8), //un padding de 8
-              child: ElevatedButton(
-                child: Text(
-                  'Incrementer',
-                ),
-                //methode executer apres click sur le button
-                onPressed: () {
-                  //changement du state
-                  setState(() {
-                    ++counter;
-                    randomValue = new Random().nextInt(100);
-                  });
-                },
-              ),
-            ),
-            Container(
-              width: double.infinity,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: ElevatedButton(
-                  child: Text(
-                    'Decrementer',
-                  ),
-                  onPressed: () {
-                    //changement du state
+                child: TextField(
+                  decoration: InputDecoration(hintText: 'Taper une ville'),
+                  onChanged: (value) {
                     setState(() {
-                      --counter;
+                      MeteoPage.city = value;
                     });
                   },
                 ),
               ),
-            )
+            ),
+            Container(
+                width: double.infinity,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(
+                    child: Text(
+                      'Get meteo',
+                      style: TextStyle(fontSize: 22),
+                    ),
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/MeteoDetails');
+                    },
+                  ),
+                ))
           ],
         ));
   }

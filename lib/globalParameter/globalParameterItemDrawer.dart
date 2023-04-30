@@ -18,6 +18,11 @@ class GlobalParameterItemDrawer {
       "title": "Quiz",
       "route": "/quiz",
       "leadingIcon": Icon(Icons.quiz),
+    },
+    {
+      "title": "Counter",
+      "route": "/counter",
+      "leadingIcon": Icon(Icons.countertops),
     }
   ];
 }

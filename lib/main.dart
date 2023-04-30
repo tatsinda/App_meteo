@@ -1,5 +1,7 @@
+import 'package:first_app_bdcc/page/counter-page.dart';
 import 'package:first_app_bdcc/page/gallery-page.dart';
 import 'package:first_app_bdcc/page/meteo-page.dart';
+import 'package:first_app_bdcc/page/meteoDetails-page.dart';
 import 'package:first_app_bdcc/page/quiz-page.dart';
 import 'package:first_app_bdcc/widget/main-drawer.dart';
 
@@ -10,7 +12,9 @@ void main() {
     routes: {
       "/meteo": (context) => MeteoPage(),
       "/gallery": (context) => GalleryPage(),
-      "/quiz": (context) => QuizPage()
+      "/quiz": (context) => QuizPage(),
+      "/counter": (context) => CounterPage(),
+      "/MeteoDetails": (context) => MeteoDetails(MeteoPage.city)
     },
     home: MyApp(),
     theme: ThemeData(appBarTheme: AppBarTheme(color: Colors.deepOrange)),

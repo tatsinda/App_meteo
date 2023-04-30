@@ -1,0 +1,4 @@
+class GobalbalRouteApi
+{
+    static final meteoUri = {"getDetails":"blanc"};
+}
